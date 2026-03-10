@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,6 +62,20 @@ public class DailyDietController {
 		}
 		else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Arrays.asList(new DailyDiet()));
+		}
+		
+	}
+	
+	@PostMapping("/save")
+	public ResponseEntity<DailyDiet> saveDiet(@RequestBody DailyDiet dietToSave) throws Exception{
+		
+		DailyDiet diet = dietService.saveDailyDiet(dietToSave);
+		
+		if (diet != null) {
+			return ResponseEntity.status(HttpStatus.FOUND).body(diet);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(diet);
 		}
 		
 	}

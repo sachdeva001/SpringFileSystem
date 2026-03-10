@@ -39,6 +39,11 @@ public class DailyDietService {
 		return repository.findAll();
 	}
 	
+	public DailyDiet saveDailyDiet(DailyDiet dailyDiet) {
+		System.out.print(" Inside Sevice "+ dailyDiet);
+		return repository.save(dailyDiet);
+	}
+	
 	
 	
 
