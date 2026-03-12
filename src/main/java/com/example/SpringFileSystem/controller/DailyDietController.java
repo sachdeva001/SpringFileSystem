@@ -81,13 +81,18 @@ public class DailyDietController {
 		
 	}
 	
+	// Need to test Options
 	@RequestMapping(value = "/checkOptions",method = RequestMethod.OPTIONS)
 	public ResponseEntity<String> checkBody(@RequestBody DailyDiet dietToSave) throws Exception{
 		
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body("Options Accepted");
 		
-
-		
+	}
+	
+	// Need to test Head
+	@RequestMapping(value = "checkHead", method = RequestMethod.HEAD)
+	public String checkMethodAvailable() {
+		return "Success";
 	}
 
 }
