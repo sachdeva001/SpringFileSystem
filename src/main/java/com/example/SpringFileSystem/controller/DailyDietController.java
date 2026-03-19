@@ -94,5 +94,11 @@ public class DailyDietController {
 	public String checkMethodAvailable() {
 		return "Success";
 	}
+	
+	// Need to test Head
+	@RequestMapping(value = "checkHead", method = RequestMethod.HEAD)
+	public String checkMethodAvailable1() {
+		return "Success";
+	}
 
 }
